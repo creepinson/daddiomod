@@ -8,6 +8,7 @@ import me.creepinson.Main.Main;
 import me.creepinson.entities.EntityPlayerClone;
 import me.creepinson.entities.RenderPlayerClone;
 import me.creepinson.lib.RefStrings;
+import me.creepinson.packet.CustomPacket;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
@@ -82,8 +83,7 @@ public class CommandCloneCreate extends CommandBase
 	            			cloneEntity.getEntityData().setString("cloneName", argString[2]);	
 	            	      
 	            			cloneUsername = argString[1];       
-	         
-	            			
+                 	
 		            cloneEntity.setCustomNameTag(argString[2]);
 		         cloneEntity.setPosition(sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
 	            		world.spawnEntityInWorld(cloneEntity);

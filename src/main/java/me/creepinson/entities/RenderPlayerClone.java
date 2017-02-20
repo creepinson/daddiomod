@@ -1,5 +1,6 @@
 package me.creepinson.entities;
 
+import me.creepinson.lib.RefStrings;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -12,13 +13,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
 public class RenderPlayerClone extends RenderBiped {
-	protected ResourceLocation textureSkin;
-	public RenderPlayerClone(RenderManager renderManagerIn, ModelBiped modelBipedIn, float shadowSizeIn) {
-		super(renderManagerIn, modelBipedIn, shadowSizeIn);
+	protected static final ResourceLocation textureSkin =  new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
+	
+	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
+		super(renderManager, model, shadowSize);
 		
 	
-	}
-
+}
 
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float f)
@@ -46,8 +47,8 @@ public void getPlayerSkin(AbstractClientPlayer player)
 	
 }
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		EntityPlayerClone eyb = (EntityPlayerClone) entity;
-		return eyb.reLoc;
+		
+		return textureSkin;
 		
 	}
 	

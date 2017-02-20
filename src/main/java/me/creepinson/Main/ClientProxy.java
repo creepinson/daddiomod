@@ -18,7 +18,7 @@ RenderPlayerClone clone;
 		  super.preInit();
 		ItemHandler.registerRenders();
 		BlockHandler.registerRenders();
-		RenderingRegistry.registerEntityRenderingHandler(EntityPlayerClone.class, clone);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPlayerClone.class,new RenderPlayerClone(null, new ModelBiped(), 0.5F));
 	}
 
 	public void init() {
