@@ -85,7 +85,7 @@ public class Main {
     int primaryColor = rand.nextInt() * 16777215;
     int secondaryColor = rand.nextInt() * 16777215;
     int entityID = 2019;
-    EntityRegistry.registerModEntity(EntityPlayerClone.class, name, entityID, instance, 64, 1, true, primaryColor, secondaryColor);
+    EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true, primaryColor, secondaryColor);
 
     }
     

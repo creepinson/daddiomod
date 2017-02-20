@@ -16,12 +16,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
 public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
-	protected static final ResourceLocation textureSkin =  new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
+	protected static ResourceLocation textureSkin;
 	protected ModelBiped model;
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
 		super(renderManager, model, shadowSize);
 		this.model = model;
-	
+	this.textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
 }
 
     protected void preRenderCallbackClone(EntityLivingBase entity, float f)
@@ -54,8 +54,8 @@ public void doRender(EntityPlayerClone entity, double x, double y, double z, flo
 {
 	GlStateManager.pushMatrix();
 	{
-		this.bindEntityTexture(entity);
-        this.bindTexture(textureSkin);
+		
+        bindTexture(textureSkin);
 		GlStateManager.translate(x, y + 2.05, z);
 
 		//Y-rotation
