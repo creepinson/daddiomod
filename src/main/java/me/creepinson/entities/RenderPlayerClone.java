@@ -6,6 +6,7 @@ import me.creepinson.lib.RefStrings;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -14,7 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
-public class RenderPlayerClone extends RenderBiped<EntityPlayerClone>{
+public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
 	protected static final ResourceLocation textureSkin =  new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
 	protected ModelBiped model;
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
@@ -47,36 +48,34 @@ public void getPlayerSkin(AbstractClientPlayer player)
 	
 	
 }
+
 @Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+public void doRender(EntityPlayerClone entity, double x, double y, double z, float entityYaw, float partialTicks)
+{
+	GlStateManager.pushMatrix();
+	{
+		this.bindEntityTexture(entity);
+
+		GlStateManager.translate(x, y + 2.05, z);
+
+		//Y-rotation
+		GlStateManager.rotate(180F, 1, 0, 0);
 		
-		return textureSkin;
+		/*//X-rotation (facing north)
+		GlStateManager.rotate(180F, 0F, 1F, 0F);*/
 		
+		GlStateManager.scale(1.0F, 1.0F, 1.0F);
+
+		
+		
+		model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
 	}
+	GlStateManager.popMatrix();
+}
 	@Override
-	public void doRenderEntity(Entity entity, double x, double y, double z, float yaw, float partialTick) {
-	// again, if you need some information from your custom entity class, you can cast to your
-	// custom class, either passing off to another method, or just doing it here
-	// in this example, it is not necessary
-
-	// if you are going to do any openGL matrix transformations, be sure to always Push and Pop
-	GL11.glPushMatrix();
-
-	// bind your texture:
-	bindTexture(textureSkin);
-
-	// do whatever transformations you need, then render
-
-	// typically you will at least want to translate for x/y/z position:
-	GL11.glTranslated(x, y, z);
-
-	// if you are using a model, you can do so like this:
-	model.render(entity, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-
-	// note all the values are 0 except the final argument, which is scale
-	// vanilla Minecraft almost excusively uses 0.0625F, but you can change it to whatever works
-
-	GL11.glPopMatrix();
+	protected ResourceLocation getEntityTexture(EntityPlayerClone entity) {
+		// TODO Auto-generated method stub
+		return textureSkin;
 	}
 	
 }
