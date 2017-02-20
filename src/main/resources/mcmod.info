@@ -1,0 +1,16 @@
+[
+{
+  "modid": "daddiomod”,
+  "name": “Daddio Mod”,
+  "description": “a mod created for my dad LOL”,
+  "version": "1.0.0",
+  "mcversion": "1.10.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Creepinson101"],
+  "credits": “my dad, minecraft forge creators“,
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [mod_minecraftForge]
+}
+]
