@@ -12,7 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
-public class RenderPlayerClone extends RenderBiped {
+public class RenderPlayerClone extends RenderBiped<EntityPlayerClone>{
 	protected static final ResourceLocation textureSkin =  new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
 	
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
@@ -21,13 +21,12 @@ public class RenderPlayerClone extends RenderBiped {
 	
 }
 
-    @Override
-    protected void preRenderCallback(EntityLivingBase entity, float f)
+    protected void preRenderCallbackClone(EntityLivingBase entity, float f)
     {
-        preRenderCallbackSerpent((EntityPlayerClone) entity, f);
+        preRenderCallbackClone((EntityPlayerClone) entity, f);
     }
   
-    protected void preRenderCallbackSerpent(EntityPlayerClone entity, float f)
+    protected void preRenderCallbackClone(EntityPlayerClone entity, float f)
     {
         // some people do some G11 transformations or blends here, like you can do
         // GL11.glScalef(2F, 2F, 2F); to scale up the entity
@@ -46,7 +45,8 @@ public void getPlayerSkin(AbstractClientPlayer player)
 	
 	
 }
-	protected ResourceLocation getEntityTexture(Entity entity) {
+
+	protected ResourceLocation getEntityTextureSkin(Entity entity) {
 		
 		return textureSkin;
 		
