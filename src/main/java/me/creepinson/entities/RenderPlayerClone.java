@@ -55,7 +55,7 @@ public void doRender(EntityPlayerClone entity, double x, double y, double z, flo
 	GlStateManager.pushMatrix();
 	{
 		this.bindEntityTexture(entity);
-
+        this.bindTexture(textureSkin);
 		GlStateManager.translate(x, y + 2.05, z);
 
 		//Y-rotation
