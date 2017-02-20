@@ -13,7 +13,7 @@ public class EntityPlayerClone extends EntityLivingBase{
 
 	public EntityPlayerClone(World worldIn) {
 		super(worldIn);
-		
+
 	}
 
 	@Override
@@ -55,4 +55,8 @@ public class EntityPlayerClone extends EntityLivingBase{
 		
 		super.readEntityFromNBT(compound);
 	}
+
+
+	
+	
 }

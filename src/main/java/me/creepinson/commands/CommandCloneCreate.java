@@ -1,5 +1,6 @@
 package me.creepinson.commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.creepinson.Main.Main;
@@ -43,14 +44,16 @@ public class CommandCloneCreate extends CommandBase
 	        return "clonecreate"; 
 	    } 
 
-	    @Override 
+@Override
 	    public List getCommandAliases() 
 	    {
-			return null; 
+	    	  List<String> list = new ArrayList<String>();
+			list.add("clonecreate");
+	    	  return list;
+		
 	       
 	    } 
-
-	    public void processCommand(ICommandSender sender, String[] argString)
+	    public void execute(MinecraftServer server, ICommandSender sender, String[] argString)
 	    { 
 	        World world = sender.getEntityWorld(); 
 	    
@@ -74,10 +77,11 @@ public class CommandCloneCreate extends CommandBase
 	            		if(argString[2] != null){
 	            			 cloneEntity = new EntityPlayerClone(world); 
 	            			cloneEntity.getEntityData().setString("cloneName", argString[2]);	
-	            		cloneUsername = argString[1];       
+	            	      
+	            			cloneUsername = argString[1];       
 	            		cloneEntity.getLocationSkin(argString[1]);
 		            cloneEntity.setCustomNameTag(argString[2]);
-		            
+		         
 	            		world.spawnEntityInWorld(cloneEntity);
 		            	sender.addChatMessage(new TextComponentTranslation("Cloned Player: " + argString[1])); 
 		    
@@ -118,17 +122,13 @@ public class CommandCloneCreate extends CommandBase
 		}
 
 
-		@Override
-		public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-			// TODO Auto-generated method stub
-			
-		}
+		
 
 
 		@Override
 		public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
 			// TODO Auto-generated method stub
-			return false;
+			return true;
 		}
 
 

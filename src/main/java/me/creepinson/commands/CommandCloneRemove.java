@@ -1,5 +1,7 @@
 package me.creepinson.commands;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import me.creepinson.Main.Main;
@@ -20,7 +22,7 @@ import net.minecraft.world.World;
 
 public class CommandCloneRemove extends CommandBase
 	{ 
-	
+	 
     protected String cloneName;
 
 	  
@@ -44,15 +46,18 @@ public class CommandCloneRemove extends CommandBase
 	    { 
 	        return "clonerem"; 
 	    } 
-
-	    @Override 
+	    @Override
 	    public List getCommandAliases() 
 	    {
-			return null; 
+	    	  List<String> list = new ArrayList<String>();
+			list.add("clonerem");
+	    	  return list;
+		
 	       
 	    } 
 
-	    public void processCommand(ICommandSender sender, String[] argString)
+
+	    public void execute(MinecraftServer server, ICommandSender sender, String[] argString)
 	    { 
 	        World world = sender.getEntityWorld(); 
 	    
@@ -70,11 +75,12 @@ public class CommandCloneRemove extends CommandBase
 	            } 
 	          for(int i = 0; i < world.getLoadedEntityList().size() ;i++)
 	        if(world.getLoadedEntityList().get(i).getEntityData().hasKey("cloneName")){
-	     
-	        	
-	        	
-	        	world.getLoadedEntityList().get(i).getEntityData().getString("cloneName");
 	        
+	        	
+	        	
+	        	world.getLoadedEntityList().get(i).setDead();
+	        sender.addChatMessage(new TextComponentTranslation("Removed Clone: " + argString[0])); 
+			    
 	        
 	        }
 
@@ -117,17 +123,11 @@ public class CommandCloneRemove extends CommandBase
 		}
 
 
-		@Override
-		public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-			// TODO Auto-generated method stub
-			
-		}
-
 
 		@Override
 		public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
 			// TODO Auto-generated method stub
-			return false;
+			return true;
 		}
 
 

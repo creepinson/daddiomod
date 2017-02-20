@@ -4,6 +4,7 @@ package me.creepinson.Main;
 import jline.internal.Log;
 import me.creepinson.commands.CommandCloneCreate;
 import me.creepinson.commands.CommandCloneRemove;
+import me.creepinson.commands.CommandRegistryMod;
 import me.creepinson.handlers.EventHandlerMOD;
 import me.creepinson.handlers.ItemHandler;
 import me.creepinson.handlers.MobDropsHandler;
@@ -41,13 +42,9 @@ public class Main {
 	public static IProxy proxy;
 
 	@EventHandler
-	public void serverLoad(FMLServerStartingEvent event)
+	public void severStarting(FMLServerStartingEvent event)
 	{
-	    // register server commands
-
-	event.registerServerCommand(new CommandCloneRemove());
-	event.registerServerCommand(new CommandCloneCreate());
-	
+		new CommandRegistryMod(event);
 	}
 
     //INITS
