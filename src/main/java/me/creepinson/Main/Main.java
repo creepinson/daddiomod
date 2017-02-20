@@ -45,7 +45,9 @@ public class Main {
 	{
 	    // register server commands
 
-	event.registerServerCommand(new CommandCloneRemove(Minecraft.getMinecraft().theWorld));
+	event.registerServerCommand(new CommandCloneRemove());
+	event.registerServerCommand(new CommandCloneCreate());
+	
 	}
 
     //INITS

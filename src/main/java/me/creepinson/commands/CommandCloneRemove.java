@@ -4,6 +4,7 @@ import java.util.List;
 
 import me.creepinson.Main.Main;
 import me.creepinson.entities.EntityPlayerClone;
+import me.creepinson.commands.CommandCloneCreate;
 import me.creepinson.lib.RefStrings;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -11,6 +12,7 @@ import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -20,11 +22,12 @@ public class CommandCloneRemove extends CommandBase
 	{ 
 	
     protected String cloneName;
-	protected EntityPlayerClone cloneEntity; 
+
 	  
-	    public CommandCloneRemove(World world) 
+	    public CommandCloneRemove() 
 	    { 
-	    	 cloneEntity = new EntityPlayerClone(world); 
+	    	
+	    	
 	  	  
 	      
 	    } 
@@ -65,15 +68,17 @@ public class CommandCloneRemove extends CommandBase
 	                sender.addChatMessage(new TextComponentTranslation("Invalid arguments!")); 
 	                return; 
 	            } 
-	            else if(cloneEntity.getEntityData().hasKey("name"))
-   if  (argString[0] == cloneEntity.getEntityData().getString("name")){
-	    	           
-	            	cloneEntity.setDead();
-	            } 
-   else{
-   	sender.addChatMessage(new TextComponentTranslation("Please Choose a Clone to Remove.")); 
-       
-   }
+	          for(int i = 0; i < world.getLoadedEntityList().size() ;i++)
+	        if(world.getLoadedEntityList().get(i).getEntityData().hasKey("cloneName")){
+	     
+	        	
+	        	
+	        	world.getLoadedEntityList().get(i).getEntityData().getString("cloneName");
+	        
+	        
+	        }
+
+   
 	            
 	            	
 	            }

@@ -23,9 +23,9 @@ public class CommandCloneCreate extends CommandBase
     protected String cloneUsername;
 	protected EntityPlayerClone cloneEntity; 
 	  
-	    public CommandCloneCreate(World world) 
+	    public CommandCloneCreate() 
 	    { 
-	    	 cloneEntity = new EntityPlayerClone(world); 
+	    	
 	  	  
 	      
 	    } 
@@ -72,7 +72,8 @@ public class CommandCloneCreate extends CommandBase
 	            	 if(argString[1] != null);
 	            	{
 	            		if(argString[2] != null){
-	            		cloneEntity.getEntityData().setString("name", argString[2]);	
+	            			 cloneEntity = new EntityPlayerClone(world); 
+	            			cloneEntity.getEntityData().setString("cloneName", argString[2]);	
 	            		cloneUsername = argString[1];       
 	            		cloneEntity.getLocationSkin(argString[1]);
 		            cloneEntity.setCustomNameTag(argString[2]);
