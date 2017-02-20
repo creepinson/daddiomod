@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class EntityPlayerClone extends EntityLiving implements IEntityAdditionalSpawnData{
+public class EntityPlayerClone extends EntityLiving{
 	ResourceLocation reLoc;
 	public EntityPlayerClone(World world) {
 		super(world);
@@ -53,23 +53,11 @@ public class EntityPlayerClone extends EntityLiving implements IEntityAdditional
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		
 		super.readEntityFromNBT(compound);
-	}
 
-	@Override
-	public void writeSpawnData(ByteBuf buffer) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void readSpawnData(ByteBuf additionalData) {
-		String bytes = ByteBufUtils.readUTF8String(additionalData);
-	reLoc = new ResourceLocation(bytes);
-
-		
 	}
 
 
-	
-	
+
+
 }

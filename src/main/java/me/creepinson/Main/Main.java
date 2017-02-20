@@ -79,13 +79,13 @@ public class Main {
     }
     public static void registerEntity(Class entityClass, String name)
     {
-
+    
     long seed = name.hashCode();
     Random rand = new Random(seed);
     int primaryColor = rand.nextInt() * 16777215;
     int secondaryColor = rand.nextInt() * 16777215;
     int entityID = 2019;
-    EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
+    EntityRegistry.registerModEntity(EntityPlayerClone.class, name, entityID, instance, 64, 1, true);
     EntityList.ENTITY_EGGS.put(name, new EntityList.EntityEggInfo(name, primaryColor, secondaryColor));
     }
     

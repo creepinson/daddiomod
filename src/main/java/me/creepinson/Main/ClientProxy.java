@@ -5,6 +5,7 @@ import me.creepinson.entities.RenderPlayerClone;
 import me.creepinson.handlers.BlockHandler;
 import me.creepinson.handlers.GuiHandler;
 import me.creepinson.handlers.ItemHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -18,7 +19,7 @@ RenderPlayerClone clone;
 		  super.preInit();
 		ItemHandler.registerRenders();
 		BlockHandler.registerRenders();
-		RenderingRegistry.registerEntityRenderingHandler(EntityPlayerClone.class,new RenderPlayerClone(null, new ModelBiped(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPlayerClone.class,new RenderPlayerClone(Minecraft.getMinecraft().getRenderManager(), new ModelBiped(), 0.5F));
 	}
 
 	public void init() {
