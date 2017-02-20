@@ -3,8 +3,10 @@ package me.creepinson.commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.creepinson.Main.CommonProxy;
 import me.creepinson.Main.Main;
 import me.creepinson.entities.EntityPlayerClone;
+import me.creepinson.entities.RenderPlayerClone;
 import me.creepinson.lib.RefStrings;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -17,10 +19,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class CommandCloneCreate extends CommandBase
 	{ 
-	
+	protected RenderPlayerClone renderClone;
     protected String cloneUsername;
 	protected EntityPlayerClone cloneEntity; 
 	  
@@ -79,7 +82,8 @@ public class CommandCloneCreate extends CommandBase
 	            			cloneEntity.getEntityData().setString("cloneName", argString[2]);	
 	            	      
 	            			cloneUsername = argString[1];       
-	            		cloneEntity.getLocationSkin(argString[1]);
+	         
+	            			
 		            cloneEntity.setCustomNameTag(argString[2]);
 		         cloneEntity.setPosition(sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
 	            		world.spawnEntityInWorld(cloneEntity);

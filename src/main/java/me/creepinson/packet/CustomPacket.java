@@ -2,14 +2,15 @@ package me.creepinson.packet;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class CustomPacket implements IMessage{
-	 public static BlockPos poser;
+	 public static String skin;
 	// A default constructor is always required
-	  public CustomPacket(BlockPos pos){
+	  public CustomPacket(String skin){
 		  
-		  this.poser = pos;
+		  this.skin = skin;
 	  }
 	 
 	
@@ -19,17 +20,17 @@ public class CustomPacket implements IMessage{
 	   
 	  }
 
-	  @Override public void toBytes(ByteBuf buf) {
+	  @Override public void toBytes(ByteBuf buffer) {
 	
-
-	    buf.writeLong(poser.toLong());
+		  ByteBufUtils.writeUTF8String(buffer, this.skin);
+	  
 	  }
 
-	  @Override public void fromBytes(ByteBuf buf) {
+	  @Override public void fromBytes(ByteBuf buffer) {
 	    // Reads the int back from the buf. Note that if you have multiple values, you must read in the same order you wrote.
 	
-		
-		  poser = BlockPos.fromLong(buf.readLong());
+		  this.skin = ByteBufUtils.readUTF8String(buffer);
+		 
 		  	
 	  
 	  }
