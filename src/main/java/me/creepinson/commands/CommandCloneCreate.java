@@ -81,7 +81,7 @@ public class CommandCloneCreate extends CommandBase
 	            			cloneUsername = argString[1];       
 	            		cloneEntity.getLocationSkin(argString[1]);
 		            cloneEntity.setCustomNameTag(argString[2]);
-		         
+		         cloneEntity.setPosition(sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
 	            		world.spawnEntityInWorld(cloneEntity);
 		            	sender.addChatMessage(new TextComponentTranslation("Cloned Player: " + argString[1])); 
 		    
