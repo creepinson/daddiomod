@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-public class EntityPlayerClone extends EntityLiving{
+public class EntityPlayerClone extends EntityLivingBase{
 	ResourceLocation reLoc;
 	public EntityPlayerClone(World world) {
 		super(world);
