@@ -78,9 +78,10 @@ public class CommandCloneCreate extends CommandBase
 	           
 	            	 if(argString[1] != null);
 	            	{
-	            		if(argString[2] != null){
+
+	            			  world.getLoadedEntityList().get(i)
 	            			 cloneEntity = new EntityPlayerClone(world); 
-	            			cloneEntity.getEntityData().setString("cloneName", argString[2]);	
+	             			  world.getLoadedEntityList().get(i).getEntityData().setString("cloneName", argString[2]);	
 	            	      
 	            			cloneUsername = argString[1];       
                  	
@@ -89,8 +90,11 @@ public class CommandCloneCreate extends CommandBase
 	            		world.spawnEntityInWorld(cloneEntity);
 		            	sender.addChatMessage(new TextComponentTranslation("Cloned Player: " + argString[1])); 
 		    
-	            	
-	            		}}}}	
+	            		        	}
+	            		}
+	            		  }
+	            	}
+	             }	
 	             }
 	             
 	            

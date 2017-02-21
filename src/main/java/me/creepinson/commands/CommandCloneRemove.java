@@ -75,7 +75,7 @@ public class CommandCloneRemove extends CommandBase
 	                return; 
 	            } 
 	          for(int i = 0; i < world.getLoadedEntityList().size() ;i++)
-	        if(world.getLoadedEntityList().get(i).getEntityData().hasKey("cloneName")){
+	        if(world.getLoadedEntityList().get(i).getEntityData().getString("cloneName") == argString[0]){
 	        
 	        	
 	        	
@@ -85,7 +85,10 @@ public class CommandCloneRemove extends CommandBase
 	        
 	        }
 
-   
+	        else{
+	        	  sender.addChatMessage(new TextComponentTranslation("You need to specify a clone to remove. ")); 
+	      		
+	        }
 	            
 	            	
 	            }
