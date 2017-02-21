@@ -56,7 +56,7 @@ public void getPlayerSkin(AbstractClientPlayer player)
 @Override
 public void doRender(EntityPlayerClone entity, double x, double y, double z, float entityYaw, float partialTicks)
 {
-	super(entity, x, y, z, entityYaw, partialTicks);
+	super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	
 	GlStateManager.pushMatrix();
 	{
