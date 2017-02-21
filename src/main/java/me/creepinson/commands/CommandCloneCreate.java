@@ -82,7 +82,7 @@ public class CommandCloneCreate extends CommandBase
 	            		
 	            				
 	            			 cloneEntity = new EntityPlayerClone(world); 
-	             			  world.getLoadedEntityList().get(i).getEntityData().setString("cloneName", argString[2]);	
+	             		cloneEntity.getEntityData().setString("cloneName", argString[2]);	
 	            	      
 	            			cloneUsername = argString[1];       
                  	
@@ -95,7 +95,7 @@ public class CommandCloneCreate extends CommandBase
 	            		}
 	            		  }
 	            	}
-	             }	
+	             
 	             
 	             
 	            
