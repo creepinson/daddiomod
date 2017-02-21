@@ -50,7 +50,8 @@ public class CommandCloneRemove extends CommandBase
 	    public List getCommandAliases() 
 	    {
 	    	  List<String> list = new ArrayList<String>();
-			list.add("clonerem");
+	    		list.add("clonerem");
+	    		list.add("cloneremove");
 	    	  return list;
 		
 	       

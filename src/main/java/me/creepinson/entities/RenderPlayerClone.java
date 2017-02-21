@@ -19,7 +19,7 @@ import net.minecraft.util.StringUtils;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
-	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID, "textures/entity/clonebase.png");
+	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/clonebase.png");
 	protected static ModelBiped model;
 	protected static float shadowOpaque = 1.0F;
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
