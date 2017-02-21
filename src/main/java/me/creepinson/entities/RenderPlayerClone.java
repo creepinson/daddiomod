@@ -7,6 +7,7 @@ import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -16,12 +17,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
 public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
-	protected static ResourceLocation textureSkin;
+	public static final ModelResourceLocation textureSkin = new ModelResourceLocation(RefStrings.MODID, "textures/models/clonebase.png");
 	protected ModelBiped model;
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
 		super(renderManager, model, shadowSize);
 		this.model = model;
-	this.textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/models/clonebase.png");
+
 }
 
     protected void preRenderCallbackClone(EntityLivingBase entity, float f)
