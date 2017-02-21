@@ -8,6 +8,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -15,10 +16,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
-	public static final ModelResourceLocation textureSkin = new ModelResourceLocation(RefStrings.MODID, "textures/models/clonebase.png");
-	protected ModelBiped model;
+	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID, "textures/entity/clonebase.png");
+	protected static ModelBiped model;
+	protected static float shadowOpaque = 1.0F;
 	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
 		super(renderManager, model, shadowSize);
 		this.model = model;
@@ -53,6 +56,8 @@ public void getPlayerSkin(AbstractClientPlayer player)
 @Override
 public void doRender(EntityPlayerClone entity, double x, double y, double z, float entityYaw, float partialTicks)
 {
+	super(entity, x, y, z, entityYaw, partialTicks);
+	
 	GlStateManager.pushMatrix();
 	{
 		
@@ -78,5 +83,14 @@ public void doRender(EntityPlayerClone entity, double x, double y, double z, flo
 		// TODO Auto-generated method stub
 		return textureSkin;
 	}
-	
-}
+	  public static class Factory implements IRenderFactory<EntityPlayerClone> {
+
+	        @Override
+	        public Render<? super EntityPlayerClone> createRenderFor(RenderManager manager) {
+	            return new RenderPlayerClone(manager, model, shadowOpaque);
+	        }
+
+	    }
+
+	}
+
