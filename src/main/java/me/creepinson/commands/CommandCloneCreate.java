@@ -78,8 +78,9 @@ public class CommandCloneCreate extends CommandBase
 	           
 	            	 if(argString[1] != null);
 	            	{
-
-	            			  world.getLoadedEntityList().get(i)
+	            		 
+	            		
+	            				
 	            			 cloneEntity = new EntityPlayerClone(world); 
 	             			  world.getLoadedEntityList().get(i).getEntityData().setString("cloneName", argString[2]);	
 	            	      
@@ -95,7 +96,7 @@ public class CommandCloneCreate extends CommandBase
 	            		  }
 	            	}
 	             }	
-	             }
+	             
 	             
 	            
 	        
