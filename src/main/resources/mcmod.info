@@ -1,16 +1,13 @@
-[
 {
-  "modid": "daddiomod”,
-  "name": “Daddio Mod”,
-  "description": “a mod created for my dad LOL”,
-  "version": "1.0.0",
-  "mcversion": "1.10.2",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Creepinson101"],
-  "credits": “my dad, minecraft forge creators“,
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": [mod_minecraftForge]
+    "modid": “daddiomod”,
+    "name": “Daddio Mod“,
+    "description": “testing mod :)”,
+    "version": “1.0.0”,
+    "mcversion": “1.10.2”,
+    "updateUrl": "",
+    "authorList": [ “creepinson” ],
+    "credits": “alexcouch, bright_spark, and the fml/forge creators!”,
+    "logoFile": "",
+    "requiredMods": [ "Forge" ]
+
 }
-]

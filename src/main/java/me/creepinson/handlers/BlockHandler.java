@@ -19,11 +19,11 @@ public class BlockHandler {
 	
 	public static void init(){
 	 
-		BlockMobChamber = new BlockMobChamber(Material.ROCK, "MobChamber", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "MobChamber");
+		BlockMobChamber = new BlockMobChamber(Material.ROCK, "mobchamber", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "mobchamber");
 		  
 	    MobChamber = (ItemBlock) new ItemBlock(BlockMobChamber);
 
-		BlockMobChamberCore = new me.creepinson.blocks.BlockMobChamberCore(Material.ROCK, "MobChamberCore", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "MobChamberCore");
+		BlockMobChamberCore = new me.creepinson.blocks.BlockMobChamberCore(Material.ROCK, "mobchambercore", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "mobchambercore");
 		  
 	    MobChamberCore = (ItemBlock) new ItemBlock(BlockMobChamberCore);
 	   
