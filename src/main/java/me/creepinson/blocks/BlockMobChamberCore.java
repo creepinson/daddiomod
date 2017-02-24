@@ -3,8 +3,10 @@ package me.creepinson.blocks;
 import me.creepinson.entities.TileEntityTest;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockMobChamberCore extends ModBlocks implements ITileEntityProvider{
@@ -27,5 +29,11 @@ public class BlockMobChamberCore extends ModBlocks implements ITileEntityProvide
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TileEntityTest();
     }
+	 @Override
+	    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+	        super.breakBlock(world, pos, state);
+	        world.removeTileEntity(pos);
+	    }
 
+	  
 }

@@ -5,6 +5,11 @@
 	"textures": {
 		"texture": "daddiomod:blocks/mobchambercore"
 	},
+	"scale": [
+                5,
+                5,
+                5
+            ],
 	"elements": [
 		{
 			"__comment": "Voxels-FFFFFF",
@@ -1879,4 +1884,5 @@
 			}
 		}
 	]
+
 }
