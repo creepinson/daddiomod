@@ -28,10 +28,10 @@ RenderPlayerClone clone;
 	public void init() {
 		  super.init();
 			RenderingRegistry.registerEntityRenderingHandler(EntityPlayerClone.class,new RenderPlayerClone(Minecraft.getMinecraft().getRenderManager(), new ModelBiped(), 0.5F));
-		    GameRegistry.registerTileEntity(TileEntityTest.class, "tileEntityTest");
-		    
+	
+	        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new TileEntityTestSpecialRender());
 
-		        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new TileEntityTestSpecialRender());
+
 NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
 	}
 
