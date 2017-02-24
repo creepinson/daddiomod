@@ -1,20 +1,11 @@
 package me.creepinson.commands;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import me.creepinson.Main.Main;
-import me.creepinson.entities.EntityPlayerClone;
-import me.creepinson.commands.CommandCloneCreate;
-import me.creepinson.lib.RefStrings;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -75,7 +66,7 @@ public class CommandCloneRemove extends CommandBase
 	                return; 
 	            } 
 	          for(int i = 0; i < world.getLoadedEntityList().size() ;i++)
-	        if(world.getLoadedEntityList().get(i).getEntityData().getString("cloneName") == argString[0]){
+	        if(argString[0].equalsIgnoreCase(world.getLoadedEntityList().get(i).getEntityData().getString("cloneName"))){
 	        
 	        	
 	        	

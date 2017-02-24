@@ -3,24 +3,16 @@ package me.creepinson.commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.creepinson.Main.CommonProxy;
-import me.creepinson.Main.Main;
 import me.creepinson.entities.EntityPlayerClone;
 import me.creepinson.entities.RenderPlayerClone;
-import me.creepinson.lib.RefStrings;
-import me.creepinson.packet.CustomPacket;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class CommandCloneCreate extends CommandBase
 	{ 
@@ -78,27 +70,29 @@ public class CommandCloneCreate extends CommandBase
 	           
 	            	 if(argString[1] != null);
 	            	{
-	            		 
-	            		
-	            				
-	            			 cloneEntity = new EntityPlayerClone(world); 
-	             		cloneEntity.getEntityData().setString("cloneName", argString[2]);	
-	            	      
-	            			cloneUsername = argString[1];       
-                 	
-		            cloneEntity.setCustomNameTag(argString[2]);
-		         cloneEntity.setPosition(sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
-	            		world.spawnEntityInWorld(cloneEntity);
-		            	sender.addChatMessage(new TextComponentTranslation("Cloned Player: " + argString[1])); 
-		    
+
+
+
+						EntityPlayerClone entity = new EntityPlayerClone(world);
+						NBTTagCompound tag = new NBTTagCompound();
+						entity.writeEntityToNBT(tag);//create the base tag
+						tag.setString("cloneName", argString[2]);//alter the tag, for instance here the health is changed. Bit devious but it's an example.
+						entity.readEntityFromNBT(tag);//inject the entity with the altered tag.
+
+
+	            			cloneUsername = argString[1];
+
+		            entity.setCustomNameTag(argString[2]);
+		         entity.setPosition(sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
+	            		world.spawnEntityInWorld(entity);
+		            	sender.addChatMessage(new TextComponentTranslation("Cloned Player: " + argString[1]));
+
 	            		        	}
 	            		}
 	            		  }
 	            	}
-	             
-	             
-	             
-	            
+
+
 	        
 	           
 	           
@@ -107,6 +101,7 @@ public class CommandCloneCreate extends CommandBase
 
 	    public boolean canCommandSenderUseCommand(ICommandSender var1) 
 	    { 
+
 	        return true;
 	    } 
 

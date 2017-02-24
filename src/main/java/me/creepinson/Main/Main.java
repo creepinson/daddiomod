@@ -1,28 +1,15 @@
-package me.creepinson.Main;
+package me.creepinson.main;
 
 
 import java.util.Random;
 
-import jline.internal.Log;
-import me.creepinson.commands.CommandCloneCreate;
-import me.creepinson.commands.CommandCloneRemove;
 import me.creepinson.commands.CommandRegistryMod;
 import me.creepinson.entities.EntityPlayerClone;
 import me.creepinson.handlers.EventHandlerMOD;
-import me.creepinson.handlers.ItemHandler;
 import me.creepinson.handlers.MobDropsHandler;
 
 import me.creepinson.lib.IProxy;
 import me.creepinson.lib.RefStrings;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
