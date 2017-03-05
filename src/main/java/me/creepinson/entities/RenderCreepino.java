@@ -21,6 +21,8 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderCreepino extends RenderLivingBase<EntityCreepino>{
 	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/ModelCreepino.png");
 	protected static ModelCreepino model;
+	public static Factory die = new Factory();
+
 	protected static float shadowOpaque = 1.0F;
 	public RenderCreepino(RenderManager renderManager, ModelCreepino model, float shadowSize) {
 		super(renderManager, model, shadowSize);
@@ -80,8 +82,7 @@ public void doRender(EntityCreepino entity, double x, double y, double z, float 
 	
 	
 	  public static class Factory implements IRenderFactory<EntityCreepino> {
-		  public static final Factory INSTANCE = new Factory();
-
+		  
 	        @Override
 	        public Render<? super EntityCreepino> createRenderFor(RenderManager manager) {
 	            return new RenderCreepino(manager, new ModelCreepino(), shadowOpaque);

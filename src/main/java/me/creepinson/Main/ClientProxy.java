@@ -26,7 +26,7 @@ RenderCreepino clone;
 
 	public void init() {
 		  super.init();
-			RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new RenderCreepino.Factory().INSTANCE);
+			RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new RenderCreepino.Factory());
 	
 	        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new TileEntityTestSpecialRender());
 
