@@ -17,32 +17,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy implements IProxy{
-	 public static SoundEvent creepinoScreech;
-	 public static SoundEvent creepinoDeath;
-	 public static SoundEvent creepinoHurt;
-
-
-
-		/**
-		 * Register the {@link SoundEvent}s.
-		 */
-		public static void registerSounds() {
-			creepinoHurt = registerSound("creepinoHurt");
-			creepinoScreech = registerSound("creepinoScreech");
-			creepinoDeath = registerSound("creepinoDeath");
-		
-		}
-
-		/**
-		 * Register a {@link SoundEvent}.
-		 *
-		 * @param soundName The SoundEvent's name without the testmod3 prefix
-		 * @return The SoundEvent
-		 */
-		private static SoundEvent registerSound(String soundName) {
-			final ResourceLocation soundID = new ResourceLocation(RefStrings.MODID, soundName);
-			return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
-		}
+	
 	 @Override
 	public void preInit() {
 		BlockHandler.init();
