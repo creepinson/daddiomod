@@ -18,11 +18,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
-	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/clonebase.png");
-	protected static ModelBiped model;
+public class RenderCreepino extends RenderLivingBase<EntityCreepino>{
+	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/ModelCreepino.png");
+	protected static ModelCreepino model;
 	protected static float shadowOpaque = 1.0F;
-	public RenderPlayerClone(RenderManager renderManager, ModelBiped model, float shadowSize) {
+	public RenderCreepino(RenderManager renderManager, ModelCreepino model, float shadowSize) {
 		super(renderManager, model, shadowSize);
 		this.model = model;
 
@@ -30,10 +30,10 @@ public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
 
     protected void preRenderCallbackClone(EntityLivingBase entity, float f)
     {
-        preRenderCallbackClone((EntityPlayerClone) entity, f);
+        preRenderCallbackClone((EntityCreepino) entity, f);
     }
   
-    protected void preRenderCallbackClone(EntityPlayerClone entity, float f)
+    protected void preRenderCallbackClone(EntityCreepino entity, float f)
     {
         // some people do some G11 transformations or blends here, like you can do
         // GL11.glScalef(2F, 2F, 2F); to scale up the entity
@@ -45,16 +45,10 @@ public class RenderPlayerClone extends RenderLivingBase<EntityPlayerClone>{
 
 	
 
-public void getPlayerSkin(AbstractClientPlayer player)
-{
-	String skin = player.getLocationSkin().toString();
-	
-	
-	
-}
+
 
 @Override
-public void doRender(EntityPlayerClone entity, double x, double y, double z, float entityYaw, float partialTicks)
+public void doRender(EntityCreepino entity, double x, double y, double z, float entityYaw, float partialTicks)
 {
 	super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	
@@ -79,15 +73,15 @@ public void doRender(EntityPlayerClone entity, double x, double y, double z, flo
 	GlStateManager.popMatrix();
 }
 	@Override
-	protected ResourceLocation getEntityTexture(EntityPlayerClone entity) {
+	protected ResourceLocation getEntityTexture(EntityCreepino entity) {
 		// TODO Auto-generated method stub
 		return textureSkin;
 	}
-	  public static class Factory implements IRenderFactory<EntityPlayerClone> {
+	  public static class Factory implements IRenderFactory<EntityCreepino> {
 
 	        @Override
-	        public Render<? super EntityPlayerClone> createRenderFor(RenderManager manager) {
-	            return new RenderPlayerClone(manager, model, shadowOpaque);
+	        public Render<? super EntityCreepino> createRenderFor(RenderManager manager) {
+	            return new RenderCreepino(manager, model, shadowOpaque);
 	        }
 
 	    }

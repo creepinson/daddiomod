@@ -3,8 +3,8 @@ package me.creepinson.commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.creepinson.entities.EntityPlayerClone;
-import me.creepinson.entities.RenderPlayerClone;
+import me.creepinson.entities.EntityCreepino;
+import me.creepinson.entities.RenderCreepino;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 
 public class CommandCloneCreate extends CommandBase
 	{ 
-	protected RenderPlayerClone renderClone;
+	protected RenderCreepino renderClone;
     protected String cloneUsername;
-	protected EntityPlayerClone cloneEntity; 
+	protected EntityCreepino cloneEntity; 
 	  
 	    public CommandCloneCreate() 
 	    { 
@@ -73,7 +73,7 @@ public class CommandCloneCreate extends CommandBase
 
 
 
-						EntityPlayerClone entity = new EntityPlayerClone(world);
+						EntityCreepino entity = new EntityCreepino(world);
 						NBTTagCompound tag = new NBTTagCompound();
 						entity.writeEntityToNBT(tag);//create the base tag
 						tag.setString("cloneName", argString[2]);//alter the tag, for instance here the health is changed. Bit devious but it's an example.

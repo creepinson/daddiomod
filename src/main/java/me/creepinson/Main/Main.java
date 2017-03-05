@@ -4,7 +4,7 @@ package me.creepinson.main;
 import java.util.Random;
 
 import me.creepinson.commands.CommandRegistryMod;
-import me.creepinson.entities.EntityPlayerClone;
+import me.creepinson.entities.EntityCreepino;
 import me.creepinson.handlers.EventHandlerMOD;
 import me.creepinson.handlers.MobDropsHandler;
 
@@ -43,7 +43,7 @@ public class Main {
     @net.minecraftforge.fml.common.Mod.EventHandler
     public void preInit(FMLPreInitializationEvent PreEvent)
     {
-    	registerEntity(EntityPlayerClone.class, "entityPlayerClone");
+    	registerEntity(EntityCreepino.class, "entityPlayerClone");
 		proxy.preInit();
      
     }
