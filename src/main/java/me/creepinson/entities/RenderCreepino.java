@@ -77,11 +77,14 @@ public void doRender(EntityCreepino entity, double x, double y, double z, float 
 		// TODO Auto-generated method stub
 		return textureSkin;
 	}
+	
+	
 	  public static class Factory implements IRenderFactory<EntityCreepino> {
+		  public static final Factory INSTANCE = new Factory();
 
 	        @Override
 	        public Render<? super EntityCreepino> createRenderFor(RenderManager manager) {
-	            return new RenderCreepino(manager, model, shadowOpaque);
+	            return new RenderCreepino(manager, new ModelCreepino(), shadowOpaque);
 	        }
 
 	    }

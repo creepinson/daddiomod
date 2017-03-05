@@ -1,0 +1,5 @@
+{
+   "creepinoDeath": {"category": "master","sounds": [{"name": "creepinoDeath","stream": false}]},
+   "creepinoScreech": {"category": "master","sounds": [{"name": "creepinoScreech","stream": false}]},
+   "creepinoHurt": {"category": "master","sounds": [{"name": "creepinoHurt","stream": false}]}
+   }
