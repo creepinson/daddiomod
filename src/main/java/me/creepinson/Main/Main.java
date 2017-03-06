@@ -43,7 +43,7 @@ public class Main {
     @net.minecraftforge.fml.common.Mod.EventHandler
     public void preInit(FMLPreInitializationEvent PreEvent)
     {
-    	registerEntity(EntityCreepino.class, "entityCreepino", 100);
+    	registerEntity(EntityCreepino.class, "entityCreepino");
 		proxy.preInit();
      
     }
@@ -64,7 +64,7 @@ public class Main {
 		proxy.postInit();	
     	
     }
-    public static void registerEntity(Class entityClass, String name, int entityID)
+    public static void registerEntity(Class entityClass, String name)
     {
     
     long seed = name.hashCode();
@@ -72,7 +72,7 @@ public class Main {
     int primaryColor = rand.nextInt() * 16777215;
     int secondaryColor = rand.nextInt() * 16777215;
     int id = 1;
-    EntityRegistry.registerModEntity(entityClass, name, id, instance, 64, 10, true, primaryColor, secondaryColor);
+    EntityRegistry.registerModEntity(entityClass, name, 2018, instance, 64, 10, true, primaryColor, secondaryColor);
 
     }
     
