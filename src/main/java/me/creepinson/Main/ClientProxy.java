@@ -26,7 +26,7 @@ RenderCreepino clone;
      @Override
 	public void init() {
 		  super.init();
-			RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new RenderCreepino.Factory());
+			RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new RenderCreepino(Minecraft.getMinecraft().getRenderManager(), new ModelCreepino(), 1.0F));
 	
 	        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new TileEntityTestSpecialRender());
 
