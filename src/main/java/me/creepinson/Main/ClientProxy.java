@@ -8,6 +8,7 @@ import me.creepinson.entities.TileEntityTestSpecialRender;
 import me.creepinson.handlers.BlockHandler;
 import me.creepinson.handlers.GuiHandler;
 import me.creepinson.handlers.ItemHandler;
+import me.creepinson.handlers.SoundHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -21,13 +22,14 @@ RenderCreepino clone;
 		  super.preInit();
 		ItemHandler.registerRenders();
 		BlockHandler.registerRenders();
-	
+		SoundHandler.registerSounds();
+		RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, RenderCreepino.die);
+		
 	}
      @Override
 	public void init() {
 		  super.init();
-			RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new RenderCreepino(Minecraft.getMinecraft().getRenderManager(), new ModelCreepino(), 1.0F));
-	
+			
 	        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new TileEntityTestSpecialRender());
 
 
