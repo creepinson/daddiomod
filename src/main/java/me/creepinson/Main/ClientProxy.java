@@ -9,8 +9,10 @@ import me.creepinson.handlers.BlockHandler;
 import me.creepinson.handlers.GuiHandler;
 import me.creepinson.handlers.ItemHandler;
 import me.creepinson.handlers.SoundHandler;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
@@ -23,7 +25,13 @@ RenderCreepino clone;
 		ItemHandler.registerRenders();
 		BlockHandler.registerRenders();
 		SoundHandler.registerSounds();
-		RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, RenderCreepino.die);
+		RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new IRenderFactory<EntityCreepino>() 
+		{
+			@Override
+			public Render<? super EntityCreepino> createRenderFor(RenderManager manager) {
+				return new RenderCreepino(manager, new ModelCreepino(), 1.0F);
+			}
+		});
 		
 	}
      @Override
