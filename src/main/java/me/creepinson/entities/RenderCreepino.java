@@ -30,13 +30,15 @@ public class RenderCreepino extends RenderLivingBase<EntityCreepino>{
 
 }
 
-    protected void preRenderCallbackClone(EntityLivingBase entity, float f)
+    protected void preRenderCallback(EntityCreepino entity, float partialTickTime)
     {
-        preRenderCallbackClone((EntityCreepino) entity, f);
+    	 preRenderCallbackCreepino(entity, partialTickTime);
     }
+
   
-    protected void preRenderCallbackClone(EntityCreepino entity, float f)
+    protected void preRenderCallbackCreepino(EntityCreepino entity, float partialTickTime)
     {
+    	 GL11.glScalef(1, 1, 1);
         // some people do some G11 transformations or blends here, like you can do
         // GL11.glScalef(2F, 2F, 2F); to scale up the entity
         // which is used for Slime entities.  I suggest having the entity cast to
