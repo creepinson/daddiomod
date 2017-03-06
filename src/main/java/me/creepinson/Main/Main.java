@@ -10,6 +10,7 @@ import me.creepinson.handlers.MobDropsHandler;
 
 import me.creepinson.lib.IProxy;
 import me.creepinson.lib.RefStrings;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -45,7 +46,7 @@ public class Main {
     {
     	registerEntity(EntityCreepino.class, "entityCreepino");
 		proxy.preInit();
-     
+		OBJLoader.INSTANCE.addDomain(RefStrings.MODID + ":" + "models/entity/Creepino.obj");
     }
     @EventHandler
     public void init(FMLInitializationEvent event)
