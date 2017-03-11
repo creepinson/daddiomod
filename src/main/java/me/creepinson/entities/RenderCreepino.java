@@ -30,25 +30,16 @@ public class RenderCreepino extends RenderLiving<EntityCreepino>{
 		super(renderManager, new ModelCreepino(), shadowSize);
 		this.model = model;
         
-}
-
+}    
+	
+	@Override
     protected void preRenderCallback(EntityCreepino entity, float partialTickTime)
     {
-    	 preRenderCallbackCreepino(entity, partialTickTime);
+   	 GL11.glScalef(1.0F,1.0F, 1.0F);
     }
 
   
-    protected void preRenderCallbackCreepino(EntityCreepino entity, float partialTickTime)
-    {
-    	 GL11.glScalef(1.0F,1.0F, 1.0F);
-     
-    	 // some people do some G11 transformations or blends here, like you can do
-        // GL11.glScalef(2F, 2F, 2F); to scale up the entity
-        // which is used for Slime entities.  I suggest having the entity cast to
-        // your custom type to make it easier to access fields from your 
-        // custom entity, eg. GL11.glScalef(entity.scaleFactor, entity.scaleFactor, 
-        // entity.scaleFactor); 
-    }
+   
 
 	
 
