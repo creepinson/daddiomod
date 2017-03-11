@@ -26,6 +26,7 @@ RenderCreepino clone;
 		BlockHandler.registerRenders();
 		SoundHandler.registerSounds();
 		RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new IRenderFactory<EntityCreepino>() 
+	
 		{
 			@Override
 			public Render<? super EntityCreepino> createRenderFor(RenderManager manager) {

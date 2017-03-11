@@ -10,24 +10,26 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderCreepino extends RenderLivingBase<EntityCreepino>{
+public class RenderCreepino extends RenderLiving<EntityCreepino>{
 	public static final ResourceLocation textureSkin = new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/ModelCreepino.png");
 	protected static ModelCreepino model;
 	public static final Factory die = new Factory();
    
 	protected static float shadowOpaque = 1.0F;
 	public RenderCreepino(RenderManager renderManager, ModelCreepino model, float shadowSize) {
-		super(renderManager, model, shadowSize);
+		super(renderManager, new ModelCreepino(), shadowSize);
 		this.model = model;
-
+        
 }
 
     protected void preRenderCallback(EntityCreepino entity, float partialTickTime)
@@ -38,8 +40,9 @@ public class RenderCreepino extends RenderLivingBase<EntityCreepino>{
   
     protected void preRenderCallbackCreepino(EntityCreepino entity, float partialTickTime)
     {
-    	 GL11.glScalef(1, 1, 1);
-        // some people do some G11 transformations or blends here, like you can do
+    	 GL11.glScalef(1.0F,1.0F, 1.0F);
+     
+    	 // some people do some G11 transformations or blends here, like you can do
         // GL11.glScalef(2F, 2F, 2F); to scale up the entity
         // which is used for Slime entities.  I suggest having the entity cast to
         // your custom type to make it easier to access fields from your 

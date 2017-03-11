@@ -44,9 +44,9 @@ public class Main {
     @net.minecraftforge.fml.common.Mod.EventHandler
     public void preInit(FMLPreInitializationEvent PreEvent)
     {
-    	registerEntity(EntityCreepino.class, "entityCreepino");
+    	registerEntity(EntityCreepino.class, "creepino");
 		proxy.preInit();
-		OBJLoader.INSTANCE.addDomain(RefStrings.MODID + ":" + "models/entity/Creepino.obj");
+	
     }
     @EventHandler
     public void init(FMLInitializationEvent event)
