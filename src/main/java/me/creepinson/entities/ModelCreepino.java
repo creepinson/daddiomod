@@ -52,56 +52,15 @@ public class ModelCreepino extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float rotationYaw, float rotationPitch, float scale) {
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
+    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float rotationYaw, float rotationPitch, float scale)
+    {
         this.Head.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.Body.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.Leg.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(this.ArmR.offsetX, this.ArmR.offsetY, this.ArmR.offsetZ);
-        GlStateManager.translate(this.ArmR.rotationPointX * scale, this.ArmR.rotationPointY * scale, this.ArmR.rotationPointZ * scale);
-        GlStateManager.scale(1.0F, 1.0F, 1.0F);
-        GlStateManager.translate(-this.ArmR.offsetX, -this.ArmR.offsetY, -this.ArmR.offsetZ);
-        GlStateManager.translate(-this.ArmR.rotationPointX * scale, -this.ArmR.rotationPointY * scale, -this.ArmR.rotationPointZ * scale);
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.ArmR.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.popMatrix();
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.ShoulderR.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate(this.ArmL.offsetX, this.ArmL.offsetY, this.ArmL.offsetZ);
-        GlStateManager.translate(this.ArmL.rotationPointX * scale, this.ArmL.rotationPointY * scale, this.ArmL.rotationPointZ * scale);
-        GlStateManager.scale(1.0F, 1.0F, 1.0F);
-        GlStateManager.translate(-this.ArmL.offsetX, -this.ArmL.offsetY, -this.ArmL.offsetZ);
-        GlStateManager.translate(-this.ArmL.rotationPointX * scale, -this.ArmL.rotationPointY * scale, -this.ArmL.rotationPointZ * scale);
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.ArmL.render(scale);
-        GlStateManager.disableBlend();
-        GlStateManager.popMatrix();
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.0F);
         this.ShoulderL.render(scale);
-        GlStateManager.disableBlend();
     }
 
     public void setRotationAngles(ModelRenderer modelRenderer, float x, float y, float z) {
