@@ -1,6 +1,6 @@
 package me.creepinson.blocks;
 
-import me.creepinson.entities.TileEntityTest;
+import me.creepinson.tileentity.TileEntityTest;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

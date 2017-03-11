@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import me.creepinson.blocks.BlockMobChamber;
 import me.creepinson.container.ContainerMobChamber;
-import me.creepinson.entities.TileEntityMobChamber;
+import me.creepinson.tileentity.TileEntityMobChamber;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;

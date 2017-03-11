@@ -1,4 +1,4 @@
-package me.creepinson.entities;
+package me.creepinson.tileentity;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

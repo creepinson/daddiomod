@@ -1,7 +1,6 @@
 package me.creepinson.main;
 
 import me.creepinson.blocks.ModBlocks;
-import me.creepinson.entities.TileEntityTest;
 import me.creepinson.handlers.BlockHandler;
 import me.creepinson.handlers.CraftingHandler;
 import me.creepinson.handlers.ItemHandler;
@@ -9,6 +8,7 @@ import me.creepinson.lib.IProxy;
 import me.creepinson.lib.RefStrings;
 import me.creepinson.packet.CustomPacket;
 import me.creepinson.packet.CustomPacketHandler;
+import me.creepinson.tileentity.TileEntityTest;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;

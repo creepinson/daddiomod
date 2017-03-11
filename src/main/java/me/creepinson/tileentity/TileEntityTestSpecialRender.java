@@ -1,4 +1,4 @@
-package me.creepinson.entities;
+package me.creepinson.tileentity;
 
 import org.lwjgl.opengl.GL11;
 

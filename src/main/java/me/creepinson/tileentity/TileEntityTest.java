@@ -1,4 +1,4 @@
-package me.creepinson.entities;
+package me.creepinson.tileentity;
 
 import me.creepinson.handlers.BlockHandler;
 import net.minecraft.block.Block;

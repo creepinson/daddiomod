@@ -1,8 +1,8 @@
 package me.creepinson.blocks;
 
-import me.creepinson.entities.TileEntityTest;
-import me.creepinson.entities.TileEntityTestSpecialRender;
 import me.creepinson.lib.RefStrings;
+import me.creepinson.tileentity.TileEntityTest;
+import me.creepinson.tileentity.TileEntityTestSpecialRender;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

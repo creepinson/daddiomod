@@ -7,7 +7,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import me.creepinson.main.Main;
-import me.creepinson.entities.TileEntityMobChamber;
+import me.creepinson.tileentity.TileEntityMobChamber;
 import me.creepinson.handlers.GuiHandler;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;

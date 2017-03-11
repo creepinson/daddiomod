@@ -1,9 +1,9 @@
 package me.creepinson.handlers;
 
 import me.creepinson.container.ContainerMobChamber;
-import me.creepinson.entities.TileEntityMobChamber;
 import me.creepinson.gui.GuiMobChamber;
 import me.creepinson.gui.GuiUtils1;
+import me.creepinson.tileentity.TileEntityMobChamber;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.math.BlockPos;
