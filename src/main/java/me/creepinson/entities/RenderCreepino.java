@@ -48,7 +48,7 @@ public class RenderCreepino extends RenderLiving<EntityCreepino>{
 @Override
 public void doRender(EntityCreepino entity, double x, double y, double z, float entityYaw, float partialTicks)
 {
-	super.doRender(entity, x, y, z, entityYaw, partialTicks);
+	
 	
 	GlStateManager.pushMatrix();
 	{
