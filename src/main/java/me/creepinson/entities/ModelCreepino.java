@@ -23,8 +23,8 @@ public class ModelCreepino extends ModelBase {
     public ModelRenderer ShoulderL;
 
     public ModelCreepino() {
-        this.textureWidth = 64;
-        this.textureHeight = 82;
+        this.textureWidth = 128;
+        this.textureHeight = 128;
 
         this.Head = new ModelRenderer(this, 0, 50);
         this.Head.setRotationPoint(-10.0F, -30.0F, 0.0F);
