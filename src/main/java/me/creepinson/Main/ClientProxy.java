@@ -6,7 +6,7 @@ import me.creepinson.entities.RenderCreepino;
 import me.creepinson.handlers.BlockHandler;
 import me.creepinson.handlers.GuiHandler;
 import me.creepinson.handlers.ItemHandler;
-import me.creepinson.handlers.SoundHandler;
+
 import me.creepinson.tileentity.TileEntityTest;
 import me.creepinson.tileentity.TileEntityTestSpecialRender;
 import net.minecraft.client.renderer.entity.Render;
@@ -24,7 +24,7 @@ RenderCreepino clone;
 		  super.preInit();
 		ItemHandler.registerRenders();
 		BlockHandler.registerRenders();
-		SoundHandler.registerSounds();
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityCreepino.class, new IRenderFactory<EntityCreepino>() 
 	
 		{

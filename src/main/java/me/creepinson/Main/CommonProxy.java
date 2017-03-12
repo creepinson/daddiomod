@@ -17,15 +17,29 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class CommonProxy implements IProxy{
+	public static SoundEvent creepinoHurt;
+	
+	public static SoundEvent creepinoDeath;
+		
+	public static SoundEvent creepinoScreech;
 	
 	 @Override
 	public void preInit() {
-		BlockHandler.init();
+		 ResourceLocation soundID1 = new ResourceLocation(RefStrings.MODID, "creepinoScreech");
+		 ResourceLocation soundID2 = new ResourceLocation(RefStrings.MODID, "creepinoHurt");
+		 ResourceLocation soundID3 = new ResourceLocation(RefStrings.MODID, "creepinoDeath");
+	       
+		 creepinoScreech = GameRegistry.register(new SoundEvent(soundID1).setRegistryName(soundID1));
+		 creepinoHurt = GameRegistry.register(new SoundEvent(soundID2).setRegistryName(soundID2));
+		 creepinoDeath = GameRegistry.register(new SoundEvent(soundID3).setRegistryName(soundID3));
+		 
+	 
+		 BlockHandler.init();
 		  BlockHandler.register();
          ModBlocks.init();
 		 ItemHandler.init();
 		  ItemHandler.register();
-		 
+		  
 	}
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("meepersplus");
 	
