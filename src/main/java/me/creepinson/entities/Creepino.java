@@ -8,6 +8,8 @@ import java.util.Random;
 
 import org.lwjgl.util.vector.Quaternion;
 
+import me.creepinson.handlers.ItemHandler;
+import me.creepinson.lib.RefStrings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -67,7 +69,7 @@ public class Creepino {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerRenderers(){
-		RenderLiving customRender = new RenderLiving(Minecraft.getMinecraft().getRenderManager(), new Creepino.ModelCreepino(), 0){protected ResourceLocation getEntityTexture(Entity par1Entity){return new ResourceLocation("Creepino_tex.png");}};
+		RenderLiving customRender = new RenderLiving(Minecraft.getMinecraft().getRenderManager(), new Creepino.ModelCreepino(), 0){protected ResourceLocation getEntityTexture(Entity par1Entity){return new ResourceLocation(RefStrings.MODID + ":" + "textures/entity/Creepino_tex.png");}};
 		RenderingRegistry.registerEntityRenderingHandler(Creepino.EntitysheepGunner.class, customRender);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArrowCustom.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), new ItemStack(mcreator_bullet.block).getItem() ,Minecraft.getMinecraft().getRenderItem()));
 
@@ -132,7 +134,7 @@ protected void applyEntityAttributes(){
 super.applyEntityAttributes();
 this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.35D);
 this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(12D);
-if(this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)!=null)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4D);
+if(this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)!=null)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1.5D);
 }
 
 	    
@@ -180,25 +182,25 @@ this.worldObj.spawnEntityInWorld(entityarrow);
 		@Override
 		protected Item getDropItem()
 		{
-			return new ItemStack(Items.IRON_INGOT).getItem();
+			return new ItemStack(ItemHandler.DaddioEssence, 2).getItem();
 		}
 
 	    @Override
 	    protected net.minecraft.util.SoundEvent getAmbientSound()
 	    {
-	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("TestEnvironmentMod:creepino.screech"));
+	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.screech"));
 	    }
 
 	    @Override
 	    protected net.minecraft.util.SoundEvent getHurtSound()
 	    {
-	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("TestEnvironmentMod:creepino.hurt"));
+	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.hurt"));
 	    }
 		
 		@Override
 	    protected net.minecraft.util.SoundEvent getDeathSound()
 	    {
-			return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("TestEnvironmentMod:creepino.death"));
+			return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.death"));
 	    }
 
 		@Override
@@ -312,7 +314,6 @@ parts.put(armR.boxName, armR);
 @Override
 public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
 {
-EntityCreepino entity = (EntityCreepino)par1Entity;
 
 //Render every non-child part
 head.render(par7);
