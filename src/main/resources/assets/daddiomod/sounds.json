@@ -1,0 +1,5 @@
+{
+"creepino.death": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoDeath","stream": false}]},
+"creepino.hurt": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoHurt","stream": false}]},
+"creepino.screech": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoScreech","stream": false}]}
+}

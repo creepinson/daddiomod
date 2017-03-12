@@ -22,7 +22,9 @@ public class CommonProxy implements IProxy{
 	public static SoundEvent creepinoDeath;
 		
 	public static SoundEvent creepinoScreech;
-	
+
+		public void registerRenderers(Main ins) {
+		}
 	 @Override
 	public void preInit() {
 		 ResourceLocation soundID1 = new ResourceLocation(RefStrings.MODID, "creepinoScreech");
