@@ -1,4 +1,4 @@
-package me.creepinson.entities;
+package me.creepinson.item;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -29,7 +29,7 @@ public class mcreator_bullet {
 	public void load(FMLInitializationEvent event) {
 		if (event.getSide() == Side.CLIENT)
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-					.register(block, 0, new ModelResourceLocation("daddiomod:bullet", "inventory"));
+					.register(block, 0, new ModelResourceLocation("daddiomod:Bullet", "inventory"));
 	}
 
 	public void generateNether(World world, Random random, int chunkX, int chunkZ) {

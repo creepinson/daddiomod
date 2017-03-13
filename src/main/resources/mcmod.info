@@ -5,9 +5,8 @@
     "version": “1.0.0”,
     "mcversion": “1.10.2”,
     "updateUrl": "",
-    "authorList": [ “creepinson” ],
-    "credits": “alexcouch, bright_spark, and the fml/forge creators!”,
-    "logoFile": "",
-    "requiredMods": [ "Forge" ]
+    "authorList": [ “Creepinson” ],
+    "credits": “AlexCouch, Bright_Spark, Sypeedy and the minecraft forge creators!”,
+    "logoFile": ""
 
 }

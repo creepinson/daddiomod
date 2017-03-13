@@ -1,5 +1,5 @@
 {
-"creepino.death": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoDeath","stream": false}]},
-"creepino.hurt": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoHurt","stream": false}]},
-"creepino.screech": {"category": "hostile","sounds": [{"name": "TestEnvironmentMod:creepinoScreech","stream": false}]}
+"creepinoDeath": {"category": "hostile","sounds": [{"name": "daddiomod:creepinoDeath","stream": false}]},
+"creepinoHurt": {"category": "hostile","sounds": [{"name": "daddiomod:creepinoHurt","stream": false}]},
+"creepinoScreech": {"category": "hostile","sounds": [{"name": "daddiomod:creepinoScreech","stream": false}]}
 }

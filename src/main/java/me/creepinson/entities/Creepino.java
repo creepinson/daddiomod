@@ -9,6 +9,7 @@ import java.util.Random;
 import org.lwjgl.util.vector.Quaternion;
 
 import me.creepinson.handlers.ItemHandler;
+import me.creepinson.item.mcreator_bullet;
 import me.creepinson.lib.RefStrings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -32,6 +33,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.init.Items;
@@ -119,8 +121,9 @@ this.tasks.addTask(8, new EntityAILookIdle(this));
 this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
 this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
 this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.8F));
-this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-this.targetTasks.addTask(6, new EntityAIHurtByTarget(this, false));
+this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+this.targetTasks.addTask(6, new EntityAINearestAttackableTarget(this, EntityChicken.class, true));
+this.targetTasks.addTask(5, new EntityAIHurtByTarget(this, false));
 this.tasks.addTask(1, new EntityAILookIdle(this));
 this.tasks.addTask(1, new EntityAIWander(this, 0.8D));
 this.tasks.addTask(1, new EntityAIAttackRanged(this, 1.25D, 20, 10.0F));
@@ -188,19 +191,19 @@ this.worldObj.spawnEntityInWorld(entityarrow);
 	    @Override
 	    protected net.minecraft.util.SoundEvent getAmbientSound()
 	    {
-	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.screech"));
+	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepinoScreech"));
 	    }
 
 	    @Override
 	    protected net.minecraft.util.SoundEvent getHurtSound()
 	    {
-	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.hurt"));
+	        return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepinoHurt"));
 	    }
 		
 		@Override
 	    protected net.minecraft.util.SoundEvent getDeathSound()
 	    {
-			return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepino.death"));
+			return (net.minecraft.util.SoundEvent)net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("daddiomod:creepinoDeath"));
 	    }
 
 		@Override

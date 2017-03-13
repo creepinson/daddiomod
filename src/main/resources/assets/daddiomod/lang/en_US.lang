@@ -1,3 +1,5 @@
-item.daddioessence.name=Daddio Essence
+item.DaddioEssence.name=Daddio Essence
 entity.daddiomod.entityPlayerClone.name=Clone
 block.mobchambercore.name=Mob Chamber Core
+entity.daddiomod.Creepino.name=Creepino
+itemGroup.Creepola=Creepola

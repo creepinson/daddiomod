@@ -1,7 +1,8 @@
 package me.creepinson.handlers;
 
 import me.creepinson.handlers.EnumHandler.SyringeTypes;
-
+import me.creepinson.item.CreepoMatic;
+import me.creepinson.item.CreepolaPortalPlacer;
 import me.creepinson.item.DaddioEssence;
 
 
@@ -13,12 +14,14 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemHandler {
+	public static Item CreepoMatic = new CreepoMatic("CreepoMatic", CreativeTabHandler.tabMP_CREEPOLA).setUnlocalizedName("daddiomod:CreepoMatic");
+	public static Item CreepolaPortalPlacer = new CreepolaPortalPlacer("CreepolaPortalPlacer", CreativeTabHandler.tabMP_CREEPOLA).setUnlocalizedName("daddiomod:CreepolaPortalPlacer");
 
 	public static Item DaddioEssence;
 	public static void init(){
 
 
-		DaddioEssence = new DaddioEssence("UtilitiesBag", CreativeTabs.MATERIALS);
+		DaddioEssence = new DaddioEssence("DaddioEssence", CreativeTabs.MATERIALS);
 	 }
 	 
 	 public static void register(){

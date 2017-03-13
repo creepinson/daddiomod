@@ -16,16 +16,5 @@ public class DaddioEssence extends ModItems{
 		super(name, tab);
 		
 	}
-	public ActionResult<ItemStack> onItemRightClick(ItemStack item, World world, EntityPlayer user, EnumHand hand)
-
-	{
-	 
-		 
-			 user.openGui(Main.instance, GuiHandler.UTILS_1, world, (int) user.posX,  (int) user.posY,  (int) user.posZ);
-		 
-		
-		
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
-		
-	}
+	
 }

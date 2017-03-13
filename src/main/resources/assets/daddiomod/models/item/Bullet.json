@@ -1,0 +1,6 @@
+{
+    "parent": "daddiomod:item/Bullet_custom",
+    "textures": {
+        "all": "daddiomod:blocks/bullet"
+    }
+}
