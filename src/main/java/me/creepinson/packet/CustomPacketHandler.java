@@ -2,7 +2,7 @@ package me.creepinson.packet;
 
 import java.util.ArrayList;
 
-import me.creepinson.blocks.BlockMobChamber;
+import me.creepinson.blocks.BlockCreepinoBrick;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -21,7 +21,7 @@ public class CustomPacketHandler implements IMessageHandler<CustomPacket, IMessa
 	public IMessage onMessage(CustomPacket message, MessageContext ctx) {
 
 		EntityPlayerMP serverPlayer = ctx.getServerHandler().playerEntity;
-		BlockMobChamber bmc;
+		BlockCreepinoBrick bmc;
 		ItemStack meep;
 		 ArrayList<ItemStack> mutantzombie_4l = new ArrayList<ItemStack>();
 		

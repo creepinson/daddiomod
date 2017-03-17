@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "axis=z": { "model": "tutorial:portalend_ew" },
+        "axis=x": { "model": "tutorial:portalend_ns" }
+    }
+}

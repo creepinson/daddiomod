@@ -1,6 +1,7 @@
 package me.creepinson.handlers;
 
-import me.creepinson.blocks.BlockMobChamber;
+import me.creepinson.blocks.BlockCreepinoBrick;
+import me.creepinson.blocks.BlockCreepolaPortal;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -11,41 +12,37 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockHandler {
-	public static Block BlockMobChamberCore;
-	public static ItemBlock MobChamberCore;
-	public static Block BlockMobChamber;
-	public static ItemBlock MobChamber;
-	
+	public static Block BlockCreepinoBrick;
+	public static ItemBlock CreepinoBrick;
+	public static BlockCreepolaPortal CreepolaPortal;
 	
 	public static void init(){
 	 
-		BlockMobChamber = new BlockMobChamber(Material.ROCK, "mobchamber", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "mobchamber");
-		  
-	    MobChamber = (ItemBlock) new ItemBlock(BlockMobChamber);
+		BlockCreepinoBrick = new BlockCreepinoBrick(Material.ROCK, "CreepinoBrick", CreativeTabHandler.tabMP_CREEPOLA, 5F, 15F, 3, "CreepinoBrick");
 
-		BlockMobChamberCore = new me.creepinson.blocks.BlockMobChamberCore(Material.ROCK, "mobchambercore", CreativeTabs.BUILDING_BLOCKS, 5F, 15F, 3, "mobchambercore");
-		  
-	    MobChamberCore = (ItemBlock) new ItemBlock(BlockMobChamberCore);
-	   
-	   
+		GameRegistry.registerBlock(CreepolaPortal = new BlockCreepolaPortal(), CreepolaPortal.getUnlocalizedName().substring(5));
+
+		
+		
+		CreepinoBrick = (ItemBlock) new ItemBlock(BlockCreepinoBrick);
+
 	   
 	    
 	}
 	 
 	 public static void register(){
 	
-		 GameRegistry.register(BlockMobChamber);
-		  GameRegistry.register(MobChamber, BlockMobChamber.getRegistryName());
-		  GameRegistry.register(BlockMobChamberCore);
-		  GameRegistry.register(MobChamberCore, BlockMobChamberCore.getRegistryName());
-	 
+		 GameRegistry.registerWithItem(BlockCreepinoBrick);
+		  GameRegistry.register(CreepolaPortal);
+		  
+		  
 	 }
 	 
 	 public static void registerRenders(){
 	 
-		 registerRender(BlockMobChamber);
-		 registerRender(BlockMobChamberCore);
-		 
+		 registerRender(BlockCreepinoBrick);
+
+		  registerRender(CreepolaPortal);
 	 }
 	 
 	 public static void registerRender(Block block){

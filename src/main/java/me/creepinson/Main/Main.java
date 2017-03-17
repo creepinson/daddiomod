@@ -1,23 +1,31 @@
 package me.creepinson.main;
 
 
+import java.io.File;
 import java.util.Random;
 
+import me.creepinson.dimensions.DimensionRegistry_MOD;
 import me.creepinson.entities.Creepino;
 import me.creepinson.entities.Creepino.EntityArrowCustom;
+import me.creepinson.handlers.ConfigHandler;
 import me.creepinson.handlers.EventHandlerMOD;
 import me.creepinson.handlers.MobDropsHandler;
-import me.creepinson.item.CreepoMatic;
-import me.creepinson.item.CreepolaPortalPlacer;
 import me.creepinson.item.mcreator_bullet;
 import me.creepinson.lib.RefStrings;
-import net.minecraft.item.Item;
+import me.creepinson.world.WorldTypeCreepop;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -36,13 +44,19 @@ import net.minecraftforge.fml.relauncher.Side;
 @net.minecraftforge.fml.common.Mod(modid = me.creepinson.lib.RefStrings.MODID, version =  me.creepinson.lib.RefStrings.VERSION)
 public class Main implements IFuelHandler, IWorldGenerator {
 
-	
 	@SidedProxy(clientSide = "me.creepinson.main.ClientProxy", serverSide = "me.creepinson.main.CommonProxy")
 	public static CommonProxy proxy;
 	public static int DimID = 2;
 	@Instance(RefStrings.MODID)
 	public static Main instance;
-
+	
+	private static File configDir;
+	
+	public static File getConfigDir(){
+		
+		return configDir;
+	}
+	
 public static Creepino mcreator_0 = new Creepino();
 public static mcreator_bullet mcreator_1 = new mcreator_bullet();
 	@Override
@@ -96,7 +110,11 @@ public static mcreator_bullet mcreator_1 = new mcreator_bullet();
     public void preInit(FMLPreInitializationEvent event)
     {
     	
-    	mcreator_0.instance = this.instance;
+    	configDir = new File(event.getModConfigurationDirectory() + "/" + RefStrings.MODID);
+    	configDir.mkdir();
+    ConfigHandler.init(new File(configDir.getPath(), RefStrings.MODID + ".cfg"));
+    	
+   	mcreator_0.instance = this.instance;
 		mcreator_1.instance = this.instance;
 		mcreator_0.preInit(event);
 		mcreator_1.preInit(event);
@@ -118,6 +136,7 @@ public static mcreator_bullet mcreator_1 = new mcreator_bullet();
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	
     	GameRegistry.registerFuelHandler(this);
 		GameRegistry.registerWorldGenerator(this, 1);
 		if (event.getSide() == Side.CLIENT) {
@@ -127,7 +146,11 @@ public static mcreator_bullet mcreator_1 = new mcreator_bullet();
 		mcreator_1.load(event);
 		proxy.registerRenderers(this);
 
+		
+		
 		proxy.init();
+		
+		DimensionRegistry_MOD.mainRegistry();
     	MinecraftForge.EVENT_BUS.register(new EventHandlerMOD());
     	MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
     
@@ -136,8 +159,10 @@ public static mcreator_bullet mcreator_1 = new mcreator_bullet();
     @EventHandler
     public void postInit(FMLPostInitializationEvent PostEvent)
     {
-		
-		proxy.postInit();	
+    
+    	WorldType typeCreepop = new WorldTypeCreepop("Creepop");
+   
+    	proxy.postInit();	
     	
     }
     public static void registerEntity(Class entityClass, String name, int ID, int color1, int color2){
